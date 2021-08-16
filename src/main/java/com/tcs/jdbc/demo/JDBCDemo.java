@@ -7,11 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import  com.tcs.jdbc.demo.JDBCDemo;
 
 public class JDBCDemo {
 	private static Logger logger = LoggerFactory.getLogger(JDBCDemo.class);
@@ -22,56 +20,53 @@ public class JDBCDemo {
 
 		try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 				Statement statement = connection.createStatement();) {
-			// create(statement);//create operation
-			//update(statement);
-			retrieve(statement);
-			// delete(statement);
-			List<String> reg = retrieveWithCondittion(statement, "A");
-			logger.debug(reg.toString());
+//			create(statement); //create
+//			retrieve(statement);
+//			update(statement);
+//			delete(statement);
+			List<String> regions = retrieveWithCondition(statement, "A");
+			logger.debug(regions.toString());
 			sort(statement);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		;
 	}
-
 	private static void sort(Statement statement) throws SQLException {
 		ResultSet resultSet = statement.executeQuery("SELECT * FROM REGIONS ORDER BY REGION_NAME");
 		while (resultSet.next()) {
-			logger.debug(resultSet.getInt(1) + " "+ resultSet.getNString("REGION_NAME"));
+			logger.debug("id ={} name={}",resultSet.getInt(1) , resultSet.getNString("REGION_NAME"));//paramterized logging 
+		}
+	}
+	private static void retrieve(Statement statement) throws SQLException {
+		ResultSet resultSet = statement.executeQuery("SELECT * from regions");
+		while (resultSet.next()) {
+			System.out.println(resultSet.getInt(1));
+			System.out.println(resultSet.getNString("REGION_NAME"));
 		}
 	}
 
-	private static List<String> retrieveWithCondittion(Statement statement, String str) throws SQLException {
-		ResultSet resultSet = statement.executeQuery("SELECT * FROM REGIONS WHERE REGION_NAME LIKE '" + str + "%'");
+	private static void create(Statement statement) throws SQLException {
+		statement.execute("INSERT INTO REGIONS VALUES(7,'Antartica');");
+	}
+
+	private static void update(Statement statement) throws SQLException {
+		statement.executeUpdate("Update regions set region_id = 7 where region_name = 'Antartica'");
+	}
+
+	private static void delete(Statement statement) throws SQLException {
+		statement.execute("DELETE FROM REGIONS WHERE REGION_NAME = 'Antartica'");
+	}
+
+	private static List<String> retrieveWithCondition(Statement statement, String str) throws SQLException {
+		ResultSet resultSet = statement.executeQuery("SELECT * FROM REGIONS WHERE REGION_NAME LIKE '"+str+"%'");
+	
 		List<String> ls = new ArrayList<>();
-		while (resultSet.next()) {
+		while(resultSet.next()) {
+			System.out.print(resultSet.getInt(1)+" ");
+			System.out.println(resultSet.getNString("REGION_NAME"));
 			ls.add(resultSet.getNString("REGION_NAME"));
 		}
 		System.out.println("");
 		return ls;
-	}
-
-	private static void delete(Statement statement) throws SQLException {
-		statement.execute("DELETE FROM REGIONS WHERE REGION_ID=10");
-	}
-
-	private static void update(Statement statement) throws SQLException {
-		statement.execute("UPDATE REGIONS SET REGION_NAME='India' WHERE REGION_ID=5");
-		statement.execute("UPDATE REGIONS SET REGION_NAME='Africa' WHERE REGION_ID=1");
-		statement.execute("UPDATE REGIONS SET REGION_NAME='America' WHERE REGION_ID=2");
-	}
-
-	private static void retrieve(Statement statement) throws SQLException {
-		ResultSet resultSet = statement.executeQuery("SELECT * FROM REGIONS");
-
-		while (resultSet.next()) {
-			logger.debug(resultSet.getInt(1) + " "+ resultSet.getNString("REGION_NAME"));
-		}
-		System.out.println("");
-	}
-
-	private static void create(Statement statement) throws SQLException {
-		statement.execute("INSERT INTO REGIONS VALUES(5,'andaman')");
 	}
 }
