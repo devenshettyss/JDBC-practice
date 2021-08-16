@@ -1,0 +1,22 @@
+2021-08-16 09:41:34,793 DEBUG c.t.j.d.JDBCDemo [main] 1 Europe
+2021-08-16 09:41:34,796 DEBUG c.t.j.d.JDBCDemo [main] 2 Americas
+2021-08-16 09:41:34,796 DEBUG c.t.j.d.JDBCDemo [main] 3 Asia
+2021-08-16 09:41:34,796 DEBUG c.t.j.d.JDBCDemo [main] 4 Middle East and Africa
+2021-08-16 09:41:34,797 DEBUG c.t.j.d.JDBCDemo [main] 5 andaman
+2021-08-16 09:41:34,798 DEBUG c.t.j.d.JDBCDemo [main] [Americas, Asia, andaman]
+2021-08-16 09:41:34,799 DEBUG c.t.j.d.JDBCDemo [main] 2 Americas
+2021-08-16 09:41:34,800 DEBUG c.t.j.d.JDBCDemo [main] 5 andaman
+2021-08-16 09:41:34,800 DEBUG c.t.j.d.JDBCDemo [main] 3 Asia
+2021-08-16 09:41:34,800 DEBUG c.t.j.d.JDBCDemo [main] 1 Europe
+2021-08-16 09:41:34,800 DEBUG c.t.j.d.JDBCDemo [main] 4 Middle East and Africa
+2021-08-16 09:42:36,142 DEBUG c.t.j.d.JDBCDemo [main] 1 Europe
+2021-08-16 09:42:36,145 DEBUG c.t.j.d.JDBCDemo [main] 2 Americas
+2021-08-16 09:42:36,145 DEBUG c.t.j.d.JDBCDemo [main] 3 Asia
+2021-08-16 09:42:36,145 DEBUG c.t.j.d.JDBCDemo [main] 4 Middle East and Africa
+2021-08-16 09:42:36,146 DEBUG c.t.j.d.JDBCDemo [main] 5 andaman
+2021-08-16 09:42:36,147 DEBUG c.t.j.d.JDBCDemo [main] [Americas, Asia, andaman]
+2021-08-16 09:42:36,148 DEBUG c.t.j.d.JDBCDemo [main] 2 Americas
+2021-08-16 09:42:36,148 DEBUG c.t.j.d.JDBCDemo [main] 5 andaman
+2021-08-16 09:42:36,148 DEBUG c.t.j.d.JDBCDemo [main] 3 Asia
+2021-08-16 09:42:36,148 DEBUG c.t.j.d.JDBCDemo [main] 1 Europe
+2021-08-16 09:42:36,149 DEBUG c.t.j.d.JDBCDemo [main] 4 Middle East and Africa
